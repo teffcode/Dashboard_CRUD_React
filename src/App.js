@@ -1,29 +1,30 @@
 import React, { Component } from 'react';
 import './App.css';
-import SideMenu from './components/menu_side.js';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-import ButtonHide from './components/button_hide';
-import ContentView from './components/content_view';
-const { Header, Content, Footer, Sider } = Layout;
+import SideMenu from './components/MenuSide.js';
+import { Layout } from 'antd';
+import ButtonHide from './components/ButtonHide';
+import ContentApp from './components/ContentApp';
+
+const { Header, Footer, Sider } = Layout;
 
 class App extends Component {
 
   constructor(props){
     super(props);
       this.state = {
-        collapsed: false,
+        isMenuCollapsed: false,
+        currentMenuItem: "dashboard"
       };
   }
 
   toggleCollapsed = () => {
     this.setState({
-      collapsed: !this.state.collapsed,
+      isMenuCollapsed: !this.state.isMenuCollapsed,
     });
   }
 
-  handleClick = (e) => {
-    console.log('Clicked: ', e);
-    this.setState({ current: e.key });
+  setCurrentMenuItem = (e) => {
+    this.setState({ currentMenuItem: e.key });
   }
 
   render() {
@@ -33,11 +34,12 @@ class App extends Component {
        <Sider
           trigger={null}
           collapsible
-          collapsed={this.state.collapsed}
+          collapsed={this.state.isMenuCollapsed}
         >
         <SideMenu 
-          stateCollapsed={this.state.collapsed}
-          handleClick={this.handleClick}
+          stateCollapsed={this.state.isMenuCollapsed}
+          handleClick={this.setCurrentMenuItem}
+          currentItem={this.state.currentMenuItem}
         />
        </Sider>
 
@@ -50,7 +52,7 @@ class App extends Component {
           />
         </Header>
 
-        <ContentView/>
+        <ContentApp currentView={this.state.currentMenuItem} />
 
         <Footer style={{ textAlign: 'center' }}>
               Radar v2.0 ©2017 Created by Seti

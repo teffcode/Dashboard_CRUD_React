@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-import './menu_side.css';
+import React from 'react';
+import { Menu, Icon } from 'antd';
+import './MenuSide.css';
 import 'antd/dist/antd.css';
-const { Header, Content, Footer, Sider } = Layout;
+
 const SubMenu = Menu.SubMenu;
 
-const SideMenu = ({ stateCollapsed, handleClick }) => (
+const SideMenu = ({ stateCollapsed, handleClick, currentItem }) => (
     
   <div>
     
@@ -13,13 +13,13 @@ const SideMenu = ({ stateCollapsed, handleClick }) => (
 
     <Menu 
       theme="dark" 
-      defaultSelectedKeys={['1']} 
       mode="inline"
       inlineCollapsed={stateCollapsed}
+      selectedKeys={[currentItem]}
       onClick={handleClick}
     >
 
-      <Menu.Item key="1">
+      <Menu.Item key="dashboard">
         <Icon type="pie-chart"/>
         <span>Dashboard</span>
       </Menu.Item>
@@ -33,28 +33,28 @@ const SideMenu = ({ stateCollapsed, handleClick }) => (
           </span>
         }
       >
-        <Menu.Item key="2">
+        <Menu.Item key="users">
           <span>
             <Icon type="team"/> 
             <span>Users</span>
           </span>
         </Menu.Item>
 
-        <Menu.Item key="3">
+        <Menu.Item key="roles">
           <span>
             <Icon type="user"/> 
             <span>Roles</span>
           </span>
         </Menu.Item>
 
-        <Menu.Item key="4">
+        <Menu.Item key="applications">
           <span>
             <Icon type="star-o"/> 
             <span>Applications</span>
           </span>
         </Menu.Item>
 
-        <Menu.Item key="5">
+        <Menu.Item key="permissions">
           <span>
             <Icon type="lock"/> 
             <span>Permissions</span>
