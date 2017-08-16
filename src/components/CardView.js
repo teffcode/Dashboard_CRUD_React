@@ -2,11 +2,10 @@ import React from 'react';
 import { Card } from 'antd';
 import 'antd/dist/antd.css';
 
-const CardView = ({cardTitle, cardContent}) => (
+const CardView = ({cardTitle, cardContent, marginCard}) => (
 
     <Card 
         title={cardTitle} 
-        style={{ width: 700 }}
     >
         <div>{cardContent}</div>
     </Card>

@@ -25,7 +25,7 @@ for (let i = 0; i < 100; i++) {
     key: i,
     name: `Estefany ${i}`,
     age: 'Aguilar Restrepo',
-    address: `London Park no. ${i}`,
+    address: `Lorem ${i}`,
   });
 }
 
