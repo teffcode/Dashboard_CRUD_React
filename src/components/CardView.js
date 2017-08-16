@@ -6,7 +6,7 @@ const CardView = ({cardTitle, cardContent}) => (
 
     <Card 
         title={cardTitle} 
-        style={{ width: 300 }}
+        style={{ width: 700 }}
     >
         <div>{cardContent}</div>
     </Card>
